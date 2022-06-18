@@ -1,9 +1,42 @@
+<img [src]="logo"/>
 <h2 align="center">Formulaire de contact</h2>
 <h3>Formateur : {{formateur}}</h3>
+<img [src]="profil" width="10%"/>
 <h4>Liste des noms :</h4>
 <ul>
-  <li *ngFor="let nom of noms">{{nom}}</li>
+  <li *ngFor="let nom of noms">{{nom|firstLetterUpperCase}}</li>
 </ul>
+<div *ngIf="test" class="alert alert-success" role="alert">
+  This is a success alert—check it out!
+</div>
+<div *ngIf="!test" class="alert alert-danger" role="alert">
+  This is a danger alert—check it out!
+</div>
+
+
+<button class="btn btn-primary" (click)="changeValue()">Changer valeur</button>
+<br/>
+Notre cours:{{cours}}<br/>
+<input type="text" [(ngModel)]="cours"/>
+<br/>
+<table class="table" border="1" style="margin:2%">
+  <tr align="center">
+    <th>Nom</th>
+    <th>Age</th>
+    <th>Email</th>
+    <th>Moyenne</th>
+    <th>Adresse</th>
+    <th>Téléphone</th>
+  </tr>
+  <tr *ngFor="let s of students" align="center">
+    <td>{{s.nom|uppercase}}</td>
+    <td>{{s.age}}</td>
+    <td>{{s.email}}</td>
+    <td>{{s.moy}}</td>
+    <td>{{s.address}}</td>
+    <td>{{s.tel}}</td>
+  </tr>
+</table>
 Bienvenue à Angular
 <div class="container">
   <div class="row">
