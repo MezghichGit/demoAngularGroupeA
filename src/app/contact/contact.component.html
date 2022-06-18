@@ -69,3 +69,42 @@ Bienvenue à Angular
   </div>
 </div>
 
+<div class="container p-2">
+  <h1>Calculatrice :</h1>
+  VERSION 1 : <br><br>
+  <form #calculatrice="ngForm" (ngSubmit)="somme(calculatrice)">
+    Valeur A :<input class="form-control m-2" type="number" name="a" ngModel>
+    Valeur B : <input class="form-control m-2" type="number" name="b" ngModel>
+    <button class="btn btn-success">Calculer</button>
+    |
+    {{'la somme = ' + resultat}}
+  </form>
+</div>
+<hr>
+<div class="container p-2">
+  <!--  ********************* -->
+  VERSION 2 : <br><br>
+  Valeur A :<input class="form-control m-2" type="number" [(ngModel)]="valeurA">
+  Valeur B : <input class="form-control m-2" type="number" [(ngModel)]="valeurB">
+  Resultat : <input class="form-control m-2" readonly type="number" [(ngModel)]="valeurA + valeurB">
+</div>
+
+
+<table class="table" border="1" style="margin:2%">
+  <tr align="center">
+    <th>ID</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Adresse Street</th>
+    <th>Phone</th>
+  </tr>
+  <tr *ngFor="let user of users" align="center">
+    <td>{{user.id}}</td>
+    <td>{{user.name}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.address.street}}</td>
+    <td>{{user.phone}}</td>
+  </tr>
+</table>
